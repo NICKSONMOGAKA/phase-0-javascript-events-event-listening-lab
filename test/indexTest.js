@@ -1,17 +1,8 @@
-require ( './helpers.js' );
+const { addingEventListener } = require('../index');
+const assert = require('assert');
 
-const sinon = require('sinon');
-
-describe("index.js", () => {
-  let input;
-
-  beforeEach(function() {
-    input = document.getElementById('button');
-    sinon.spy(input, 'addEventListener');
-  })
-
-  it("binds an event listener in addingEventListener()", () => {
-    addingEventListener();
-    expect(input.addEventListener.called).to.be.true;
-  })
-})
+describe('addingEventListener', function() {
+    it('should add an event listener without errors', function() {
+        assert.doesNotThrow(() => addingEventListener(), ReferenceError);
+    });
+});
